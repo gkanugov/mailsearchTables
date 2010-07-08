@@ -24,23 +24,15 @@ function searchMessagesReq(){
 	var jsonStr = JSON.stringify(searchParams);
 	//y.log(jsonStr);
 
-	// get parameters for the given cascade method
-	var params = '[{' +
-			'     "search": {' +
-								'"query":' +jsonStr+ 
-							'}' +',' +
-				 '"numInfo": "' +inputs['numInfo'] +'",' + 
-				 '"numMid": "' +inputs['numMid']+ '",' +
-				 '"sortKey": "'+inputs['sortKey']+ '",' +
-				 '"sortOrder": "' +inputs['sortOrder']+ '",' +
-				 '"refineBy": "' +inputs['refineBy']+ '"' +
-			 '}]';
 	var params = '[{' + ' "query" : ' + jsonStr + '}]';
 	
 	y.log(params);
 
+	var content = '{' + '"method" : "search" , ' 
+			  + '"params"' : + params + '}';
 
-	return params;
+
+	return content;
 
 }
 

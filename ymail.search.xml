@@ -9,7 +9,7 @@
   <i:bindings>
    <i:select itemPath="json.result" produces="JSON" >
       <urls>
-        <url>http://web32309.mail.mud.yahoo.com/mailsearch/v1/search</url>
+        <url>http://web32309.mail.mud.yahoo.com/mailsearch/v1</url>
       </urls>
       <inputs>
 	  	    <key id="query" type='xs:string' paramType='variable' />
