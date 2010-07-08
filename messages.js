@@ -28,8 +28,7 @@ function searchMessagesReq(){
 	
 	y.log(params);
 
-	var content = '{' + '"method" : "search" , ' 
-			  + '"params"' : + params + '}';
+	var content = '{' + '"method" : "search" ,  "params" : ' + params + '}';
 
 
 	return content;
