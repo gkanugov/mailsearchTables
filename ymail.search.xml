@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user">
+  <meta>
+    <author>Yahoo! Inc.</author>
+    <sampleQuery>select * from {table} where numMid='3'</sampleQuery>
+	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
+	<description> This table helps you to list messages or search content in your mailbox </description>
+  </meta>
+  <i:bindings>
+   <i:select itemPath="json.result" produces="JSON" >
+      <urls>
+        <url>http://web32309.mail.mud.yahoo.com/mailsearch/v1/search</url>
+      </urls>
+      <inputs>
+	  	    <key id="query" type='xs:string' paramType='variable' />
+		    <key id="fr" type='xs:string' paramType='variable' />
+	   	    <key id="to" type='xs:string' paramType='variable' />
+	 	    <key id="subject" type='xs:string' paramType='variable'/>
+		    <key id="cc" type='xs:string' paramType='variable' />
+		    <key id="flags" type='xs:string' paramType='variable' />
+		    <key id="attachment" type='xs:string' paramType='variable' />
+		    <key id="attachmentcount" type='xs:string' paramType='variable' />
+		    <key id="attachmenttype" type='xs:string' paramType='variable' />
+		    <key id="attachmentname" type='xs:string' paramType='variable' />
+		    <key id="fid" type='xs:string' paramType='variable' />
+		    <key id="count" type='xs:string' paramType='variable' />
+		    <key id="start" type='xs:string' paramType='variable' />
+		    <key id="appid" type='xs:string' paramType='variable' />
+	  </inputs>
+	  <execute><![CDATA[
+		
+		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/messages.js");
+		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
+	
+        //Intialization
+        var content = '';
+        var params = '[{}]';
+		
+ 	content = searchMessagesReq();
+    	
+ 	var returned_response = request.post(content).response;
+		
+ 	response.object = returned_response;
+
+      ]]></execute>
+   </i:select>
+  </i:bindings>
+</i:table>
