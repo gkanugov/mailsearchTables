@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user">
+  <meta>
+    <author>Yahoo! Inc.</author>
+    <sampleQuery>select * from {table} where numMid='3'</sampleQuery>
+	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
+	<description> This table helps you to list messages or search content in your mailbox </description>
+  </meta>
+  <i:bindings>
+   <i:select itemPath="json.result" produces="JSON" auth="yahooOauth">
+      <urls>
+        <url>http://mail.yahooapis.com/ws/mail/v1.1/jsonrpc</url>
+      </urls>
+      <inputs>
+	  	    <key id="query" type='xs:string' paramType='variable' />
+		    <key id="fr" type='xs:string' paramType='variable' />
+	   	    <key id="to" type='xs:string' paramType='variable' />
+	 	    <key id="subject" type='xs:string' paramType='variable'/>
+		    <key id="cc" type='xs:string' paramType='variable' />
+	  	    <key id="bcc" type='xs:string' paramType='variable' />
+		    <key id="flags" type='xs:string' paramType='variable' />
+		    <key id="attachment" type='xs:string' paramType='variable' />
+		    <key id="attachmentcount" type='xs:string' paramType='variable' />
+		    <key id="attachmenttype" type='xs:string' paramType='variable' />
+		    <key id="attachmentname" type='xs:string' paramType='variable' />
+		    <key id="attachmentlanguages" type='xs:string' paramType='variable' />
+		    <key id="searchtype" type='xs:string' paramType='variable' default='whole' /> 
+		    <key id="startMid" type='xs:string' paramType='variable' default='0' />
+		    <key id="numMid" type='xs:string' paramType='variable' default='50' />
+		    <key id="startInfo" type='xs:string' paramType='variable' default='0' />
+		    <key id="numInfo" type='xs:string' paramType='variable' default='50' />
+		    <key id="fid" type='xs:string' paramType='variable' />
+		    <key id="mid" type='xs:string' paramType='variable' />
+		    <key id="pid" type='xs:string' paramType='variable' />
+		    <key id="search" type='xs:string' paramType='variable' />
+			<key id="refineBy" type='xs:string' paramType='variable' default='all' />
+			<key id="groupBy" type='xs:string' paramType='variable' default='unRead' />
+		    <key id="sortKey" type='xs:string' paramType='variable' default='date' />
+		    <key id="sortOrder" type='xs:string' paramType='variable' default='up' />
+	  </inputs>
+	  <execute><![CDATA[
+		
+		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/msgram.js");
+		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
+	
+        //Intialization
+        var content = '';
+        var params = '[{}]';
+		var checkForSearchParams = false;
+
+		//Check if there are any search parameters in the request query
+		if(inputs.query != null || inputs.fr != null || inputs.to != null || inputs.subject != null || inputs.cc != null || inputs.bcc != null || inputs.flags != null || inputs.attachment != null || inputs.attachmentcount != null || inputs.attachmentname != null || inputs.attachmentlanguages != null || inputs.attachmenttype != null){
+				
+					checkForSearchParams = true;
+	
+		}
+		
+		//Call the appropriate method based on the flag value
+		if (checkForSearchParams == true){
+			content = searchMessagesReq();
+		}else {
+			content = listMessagesReq();
+		}
+		y.log(content);
+    	
+		var returned_response = request.post(content).response;
+		
+		response.object = returned_response;
+
+      ]]></execute>
+   </i:select>
+  </i:bindings>
+</i:table>
