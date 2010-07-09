@@ -42,9 +42,9 @@
 	y.log(content);
 
 
-	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1';
+	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1?query={"simple":"yahoo"}&count=10&start=0&appid=yqltest';
 	
- 	var returned_response = y.rest(url).post(content).response; 
+ 	var returned_response = y.rest(url).get().response; 
 	y.log("returned");
 	y.log(returned_response);
 		
