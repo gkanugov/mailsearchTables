@@ -33,10 +33,21 @@
         var content = '';
         var params = '[{}]';
 
+	 var searchParams = { "simple" : inputs['query']  };
+
+        var jsonStr = JSON.stringify(searchParams);
+        y.log(jsonStr);
+
+	var content = '{ "query" : ' + jsonStr + 
+			', "count" : "10" ,
+			   "start" : "0" ,
+			   "appid" : "yqltest" }';			   
+	y.log(content);
+
+
 	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1/search?query={"simple":"yahoo"}&count=10&start=0&appid=yqltest';
 	
- 	var returned_response = y.rest(url).get().response; 
-	y.log(returned_response);
+ 	var returned_response = y.rest(url).post(content).response; 
 		
  	response.object = returned_response;
 	y.log(response.object);
