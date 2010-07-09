@@ -45,9 +45,10 @@
 	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1/search';
 	
  	var returned_response = y.rest(url).post(content).response; 
+	y.log("returned");
+	y.log(returned_response);
 		
  	response.object = returned_response;
-	y.log(response.object);
 
       ]]></execute>
    </i:select>
