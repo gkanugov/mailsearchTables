@@ -43,7 +43,7 @@
 
 
 	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1/search?query={"simple":"yahoo"}&count=10&start=0&appid=mswstest'
- 	var returned_response = y.rest(url)i.get().response; 
+ 	var returned_response = y.rest(url).get().response; 
 	y.log(request.url);
 	y.log(request.object);
 	y.log(returned_response);
