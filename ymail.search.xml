@@ -8,6 +8,9 @@
   </meta>
   <i:bindings>
    <i:select itemPath="json.result" produces="JSON" auth="yahooOauth">
+   <urls>
+        <url>http://web32309.mail.mud.yahoo.com/mailsearch/v1/search?query={"simple":"yahoo"}&count=10&start=0&appid=mswstest</url>
+    </urls>
       <inputs>
 	  	    <key id="query" type='xs:string' paramType='variable' />
 		    <key id="fr" type='xs:string' paramType='variable' />
