@@ -40,8 +40,8 @@
 
 	var content = ' "query" : ' + jsonStr + ', "count" : "10" , "start" : "0" , "appid" : "yqltest" '; 
 	y.log(content);
-
-	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1/search?query%3D%7B%22simple%22%3A%22yahoo%22%7D%26count%3D10%26start%3D0%26appid%3Dmswstest';
+	
+	var url ='http://web32309.mail.mud.yahoo.com/mailsearch/v1/search?query%3D%7B%22simple%22%3A%22yahoo%22%7D%26count%3D10%26start%3D0%26appid%3Dmswstest';
  	var returned_response = y.rest(url).header('Authorization', internal.auth.authorization).get().response; 
 	y.log(request.url);
 	y.log(request.object);
