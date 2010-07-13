@@ -35,6 +35,15 @@
 
 	 var searchParams = { "simple" : inputs['query']  };
 
+var cookies = internal.request.cookies;
+  var strCookie = '';
+  for (var i = 0; i < cookies.length; i++) {
+    y.log(cookies[i].name); 
+    y.log(cookies[i].value);
+    strCookie += cookies[i].name + '=' + cookies[i].value + ';' ;
+    if (i < cookies.length-1) strCookie += ' ';
+  }
+
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
