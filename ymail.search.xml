@@ -7,7 +7,7 @@
 	<description> This table helps you to list messages or search content in your mailbox </description>
   </meta>
   <i:bindings>
-   <i:select itemPath="json.result" produces="JSON" >
+   <i:select itemPath="json.result" produces="JSON" auth="yahooOauth" >
       <inputs>
 	  	    <key id="query" type='xs:string' paramType='variable' />
 		    <key id="fr" type='xs:string' paramType='variable' />
@@ -41,7 +41,7 @@
 	var content = ' "query" : ' + jsonStr + ', "count" : "10" , "start" : "0" , "appid" : "yqltest" '; 
 	y.log(content);
 
-	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1/search?query%3D%7B%2522keyword%2522%3A%2522yahoo%2522%7D%26count%3D10%26start%3D0%26appid%3Dmswstest%26wssid%3DQ8GO59bFHZl';	
+	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1/search?query%3D%7B%2522keyword%2522%3A%2522yahoo%2522%7D%26count%3D10%26start%3D0%26appid%3Dmswstest';	
  	var returned_response = y.rest(url).get().response; 
 	y.log(request.url);
 	y.log(request.object);
