@@ -7,7 +7,7 @@
 	<description> This table helps you to list messages or search content in your mailbox </description>
   </meta>
   <i:bindings>
-   <i:select itemPath="json.result" produces="JSON" auth="yahooOauth">
+   <i:select itemPath="json.result" produces="JSON" >
       <inputs>
 	  	    <key id="query" type='xs:string' paramType='variable' />
 		    <key id="fr" type='xs:string' paramType='variable' />
