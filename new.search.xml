@@ -42,7 +42,7 @@
         }
 
         if (inputs['fr'] != null) {
-          searchParams.from = inputs['
+          searchParams.from = inputs['fr'];
         }
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
