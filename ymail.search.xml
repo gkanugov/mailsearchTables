@@ -59,11 +59,11 @@ var cookies = internal.request.cookies;
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
-	var returned_response = req.get().response;	
+	response.object = req.get().response;	
 y.log(returned_response);
-  var temp = JSON.stringify(returned_response);
- y.log(temp);
- 	response.object = temp;
+//  var temp = JSON.stringify(returned_response);
+// y.log(temp);
+ 	//response.object = temp;
 
       ]]></execute>
    </i:select>
