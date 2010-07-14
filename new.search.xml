@@ -44,6 +44,15 @@
         if (inputs['fr'] != null) {
           searchParams.from = inputs['fr'];
         }
+
+        if (inputs['to'] != null) {
+          searchParams.to = inputs['to'];
+        }
+
+        if (inputs['subject'] != null) {
+          searchParams.subject = inputs['subject'];
+        }
+
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
