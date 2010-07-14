@@ -7,7 +7,7 @@
 	<description> This table helps you to list messages or search content in your mailbox </description>
   </meta>
   <i:bindings>
-   <i:select itemPath="json.result" produces="JSON" auth="yahooOauth" >
+   <i:select itemPath="" produces="JSON" auth="yahooOauth" >
       <inputs>
 	  	    <key id="query" type='xs:string' paramType='variable' />
 		    <key id="fr" type='xs:string' paramType='variable' />
@@ -33,17 +33,17 @@
         var content = '';
         var params = '[{}]';
 
-	 var searchParams = { "keyword" : inputs['query']  };
+	      var searchParams;
+        if (inputs['query'] != null) {
+          searchParams += { "keyword" : inputs['query']  };
+        }
+        else {
+          searchParams += { "keyword" : "" };
+        }
 
-var cookies = internal.request.cookies;
-  var strCookie = '';
-  for (var i = 0; i < cookies.length; i++) {
-//    y.log(cookies[i].name); 
-//    y.log(cookies[i].value);
-    strCookie += cookies[i].name + '=' + cookies[i].value + ';' ;
-    if (i < cookies.length-1) strCookie += ' ';
-  }
-
+        //if (inputs['fr'] != null) {
+          //searchParams.from = inputs['
+       // }
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
