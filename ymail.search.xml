@@ -60,7 +60,7 @@ var cookies = internal.request.cookies;
 
 	y.log(request.headers);
 	response.object = req.get().response;	
-y.log(returned_response);
+//y.log(returned_response);
 //  var temp = JSON.stringify(returned_response);
 // y.log(temp);
  	//response.object = temp;
