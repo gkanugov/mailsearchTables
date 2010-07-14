@@ -51,13 +51,13 @@ var cookies = internal.request.cookies;
 	y.log(content);
 
 
-	var url = 'http://web32309.mail.mud.yahoo.com/mailsearch/v1/search?query%3D%7B%2522keyword%2522%3A%2522yahoo%2522%7D%26count%3D10%26start%3D0%26appid%3Dmswstest';	
+	var url = 'http://mail.yahooapis.com/mailsearch/v1/search?query%3D%7B%2522keyword%2522%3A%2522yahoo%2522%7D%26count%3D10%26start%3D0%26appid%3Dmswstest';	
  var appauth = request.headers['Yahoo-App-Auth'];	
 	var req = y.rest(url).header('Authorization', internal.auth.authorization);
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
-	y.log(req.header["Yahoo-App-Auth"]);
+	y.log(req.header['Yahoo-App-Auth']);
 		
  	response.object = req.get().response;
 
