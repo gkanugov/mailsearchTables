@@ -41,9 +41,9 @@
           searchParams = { "keyword" : "" };
         }
 
-        //if (inputs['fr'] != null) {
-          //searchParams.from = inputs['
-       // }
+        if (inputs['fr'] != null) {
+          searchParams.from = inputs['
+        }
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
