@@ -11,7 +11,7 @@
       <inputs>
 	  	    <key id="query" type='xs:string' paramType='variable' />
 		    <key id="fr" type='xs:string' paramType='variable' />
-	   	    <key id="to" type='xs:string' paramType='variable' />
+	   	  <key id="to" type='xs:string' paramType='variable' />
 	 	    <key id="subject" type='xs:string' paramType='variable'/>
 		    <key id="cc" type='xs:string' paramType='variable' />
 		    <key id="flags" type='xs:string' paramType='variable' />
@@ -52,9 +52,10 @@ var cookies = internal.request.cookies;
 
 
 	//var url = 'http://mail.yahooapis.com/mailsearch/v1/search?query=%7B"keyword":"yahoo"%7D&count=10&start=0&appid=mswstest';
-	var url = 'http://mail.yahooapis.com/mailsearch/v1/search?'+content;
+	var url = 'http://mail.yahooapis.com/mailsearch/v1';
+  var pathStr = 'search?'+content;
 	 var appauth = request.headers['Yahoo-App-Auth'];	
-	var req = y.rest(url).header('Authorization', internal.auth.authorization);
+	var req = y.rest(url).path(pathStr).header('Authorization', internal.auth.authorization);
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
