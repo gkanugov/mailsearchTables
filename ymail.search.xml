@@ -53,7 +53,7 @@ var cookies = internal.request.cookies;
 
 	//var url = 'http://mail.yahooapis.com/mailsearch/v1/search?query=%7B"keyword":"yahoo"%7D&count=10&start=0&appid=mswstest';
 	var url = 'http://mail.yahooapis.com/mailsearch/v1/search?'+content;
- var appauth = request.headers['Yahoo-App-Auth'];	
+	 var appauth = request.headers['Yahoo-App-Auth'];	
 	var req = y.rest(url).header('Authorization', internal.auth.authorization);
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
