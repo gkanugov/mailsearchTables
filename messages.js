@@ -17,21 +17,20 @@ function searchMessagesReq(){
 		'"flags": "' +inputs['flags']+ '"' + ',' +
 	*/
 
-	var searchParams = { "simple" : inputs['query']  };
+	var searchParams = { "keyword" : inputs['query']  };
 
 	
 
 	var jsonStr = JSON.stringify(searchParams);
 	//y.log(jsonStr);
 
-	var params = '[{' + ' "query" : ' + jsonStr + '}]';
+	var params = '{' + ' "query" : ' + jsonStr + '}';
 	
-	y.log(params);
 
 	var content = '{' + '"method" : "search" ,  "params" : ' + params + '}';
 
 
-	return content;
+	return params;
 
 }
 
