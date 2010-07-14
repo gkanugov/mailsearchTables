@@ -33,13 +33,13 @@
         var content = '';
         var params = '[{}]';
 
-	      var searchParams;
-        if (inputs['query'] != null) {
+	      var searchParams = { "keyword" : inputs['query']  };
+        /*if (inputs['query'] != null) {
           searchParams += { "keyword" : inputs['query']  };
         }
         else {
           searchParams += { "keyword" : "" };
-        }
+        }*/
 
         //if (inputs['fr'] != null) {
           //searchParams.from = inputs['
