@@ -35,7 +35,7 @@
 
 	      var searchParams = new Object ; 
         if (inputs['query'] != null) {
-          searchParams.keyword += inputs['query'];
+          searchParams.keyword += escape(inputs['query']);
         }
 
         if (inputs['fr'] != null) {
