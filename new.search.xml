@@ -34,7 +34,7 @@
 
 	      var searchParams ; 
         if (inputs['keyword'] != null) {
-          searchParams.keyword += inputs['keyword'];
+          searchParams = { "keyword" : inputs['keyword'] };
         }
         else {
           searchParams = {};
@@ -52,10 +52,19 @@
           searchParams.subject = inputs['subject'];
         }
 
+        if (inputs['count'] != null) {
+          searchParams.count = inputs['count'];
+        }
+    
+        if (inputs['start'] != null) {
+          searchParams.start = inputs['start'];
+        }
+
+
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
-	var content = 'query=' + escape(jsonStr) + '&count=10&start=0&appid=yqltest'; 
+	var content = 'query=' + escape(jsonStr) + '&appid=yqltest'; 
 	y.log(content);
 
 
