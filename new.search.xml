@@ -71,7 +71,7 @@
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
-	var content = 'query=' + escape(jsonStr) + escape(params); 
+	var content = 'query=' + escape(jsonStr) + params; 
 	y.log(content);
 
 
