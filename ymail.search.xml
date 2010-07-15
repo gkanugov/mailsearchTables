@@ -33,7 +33,7 @@
         var content = '';
         var params = '[{}]';
 
-	      var searchParamsi = {} ; 
+	      var searchParams = {} ; 
         if (inputs['query'] != null) {
           searchParams.keyword += inputs['query'];
         }
