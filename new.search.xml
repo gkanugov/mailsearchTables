@@ -37,6 +37,9 @@
         if (inputs['query'] != null) {
           searchParams.keyword += inputs['keyword'];
         }
+        else {
+          searchParams = {};
+        }
 
         if (inputs['fr'] != null) {
           searchParams.from = inputs['fr'];
