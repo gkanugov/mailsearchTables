@@ -7,7 +7,7 @@
 	<description> This table helps you to list messages or search content in your mailbox </description>
   </meta>
   <i:bindings>
-   <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
+   <i:select itemPath="json.hits" produces="JSON" auth="yahooOauth" >
       <inputs>
 	  	  <key id="keyword" type='xs:string' paramType='variable' />
 		    <key id="sender" type='xs:string' paramType='variable' />
@@ -51,6 +51,22 @@
 
         if (inputs['subject'] != null) {
           searchParams.subject = inputs['subject'];
+        }
+
+        if (inputs['cc'] != null) {
+          searchParams.cc= inputs['cc'];
+        }
+
+        if (inputs['attachmentcount'] != null) {
+          searchParams.attachmentcount = inputs['attachmentcount'];
+        }
+        
+        if (inputs['attachmenttype'] != null) {
+          searchParams.attachmenttype = inputs['attachmenttype'];
+        }
+
+        if (inputs['attachmentname'] != null) {
+          searchParams.attachmentname = inputs['attachmentname'];
         }
 
         if (inputs['count'] != null) {
