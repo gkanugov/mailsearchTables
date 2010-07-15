@@ -38,7 +38,7 @@
           searchParams = { "keyword" : inputs['keyword'] };
         }
         else {
-          searchParams = {};
+          searchParams = { };
         }
 
         if (inputs['sender'] != null) {
