@@ -65,7 +65,7 @@
           params += '&appid=' + inputs['appid'];
         }
         else {
-          params += "&appid=yqlclient";
+          params += '&appid=yqlclient';
         }
         y.log(params);
 
