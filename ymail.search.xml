@@ -33,9 +33,12 @@
         var content = '';
         var params = '[{}]';
 
-	      var searchParams = new Object ; 
+	      var searchParams; 
         if (inputs['query'] != null) {
-          searchParams.keyword += escape(inputs['query']);
+          searchParams = { "keyword" : inputs['query']};
+        }
+        else {
+          searchParams = { };
         }
 
         if (inputs['fr'] != null) {
