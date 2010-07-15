@@ -64,6 +64,7 @@
 	var url = 'http://mail.yahooapis.com/mailsearch/v1';
   var pathStr = 'search?'+content;
 	 var appauth = request.headers['Yahoo-App-Auth'];	
+  y.log(internal.auth.authorization);
 	var req = y.rest(url).path(pathStr).header('Authorization', internal.auth.authorization);
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
