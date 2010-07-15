@@ -67,6 +67,7 @@
         else {
           params += '&appid=yqlclient';
         }
+        y.log(params);
 
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
