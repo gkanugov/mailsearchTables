@@ -64,8 +64,8 @@
 	var url = 'http://mail.yahooapis.com/mailsearch/v1';
   var pathStr = 'search?'+content;
 	 var appauth = request.headers['Yahoo-App-Auth'];	
-  y.log(internal.auth.authorization);
-	var req = y.rest(url).path(pathStr).header('Authorization', internal.auth.authorization);
+  var at = 'U=LSB0PXAgYz1kajB5Sm1rOU9FSlBaVmxxTlRob1ZrWnZKbVE5V1Zkck9VeFhNWHBrTTA0d1RqSk5iV05IYnpsTlExbzFVRlJGTFNaelBXTnZibk4xYldWeWMyVmpjbVYwSm5nOVl6TS0gWT12PTEmbj05cTdjYzBnOGdoZ2ZuJmw9Nl9qNGlqOGQ2XzAyMi9vJnA9bTJiMDAwMDAxMjAwMDAwMCZyPW1sJmxnPWVuLUlOJmludGw9aW4gVD16PXNTcE5NQnNTcE5NQjRvRlpDMVkyZXhNTkRVMEJqTTBUalkzTjA0eE1URk9OakkwTWomYT1RQUUmc2s9REFBQUVGREQ3V1I4Q3gma3M9RUFBMDZNd3pBU0FhNlhPZXByZ3lzUVl1QS0tfkUmZD1jMndCVFhwSmVrRlVVWHBQVkVWM1RVUnJNazVxV1RWTlZGVjZUbFJOZUFGaEFWRkJSUUZuQVZVMVNFZERTMUZJVVZGVldrNWFTVVZDVlZwQlZVZE1SMGxCQVhScGNBRkVlSEpZVmtFQmVub0JjMU53VGsxQ1FUZEY-'
+	var req = y.rest(url).path(pathStr).header('Authorization', at);
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
