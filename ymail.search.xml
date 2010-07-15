@@ -35,7 +35,7 @@
 
 	      var searchParams ; 
         if (inputs['query'] != null) {
-          searchParams.keyword += inputs['keyword'];
+          searchParams.keyword += inputs['query'];
         }
         else {
           searchParams = {};
