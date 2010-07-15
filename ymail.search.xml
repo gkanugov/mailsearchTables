@@ -33,17 +33,26 @@
         var content = '';
         var params = '[{}]';
 
-	      var searchParams = { "keyword" : inputs['query']  };
-        /*if (inputs['query'] != null) {
-          searchParams += { "keyword" : inputs['query']  };
+	      var searchParams ; 
+        if (inputs['query'] != null) {
+          searchParams.keyword += inputs['keyword'];
         }
         else {
-          searchParams += { "keyword" : "" };
-        }*/
+          searchParams = {};
+        }
 
-        //if (inputs['fr'] != null) {
-          //searchParams.from = inputs['
-       // }
+        if (inputs['fr'] != null) {
+          searchParams.from = inputs['fr'];
+        }
+
+        if (inputs['to'] != null) {
+          searchParams.to = inputs['to'];
+        }
+
+        if (inputs['subject'] != null) {
+          searchParams.subject = inputs['subject'];
+        }
+
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
