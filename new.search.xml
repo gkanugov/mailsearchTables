@@ -9,13 +9,12 @@
   <i:bindings>
    <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
       <inputs>
-	  	    <key id="query" type='xs:string' paramType='variable' />
-		    <key id="fr" type='xs:string' paramType='variable' />
+	  	  <key id="keyword" type='xs:string' paramType='variable' />
+		    <key id="sender" type='xs:string' paramType='variable' />
 	   	  <key id="to" type='xs:string' paramType='variable' />
 	 	    <key id="subject" type='xs:string' paramType='variable'/>
 		    <key id="cc" type='xs:string' paramType='variable' />
 		    <key id="flags" type='xs:string' paramType='variable' />
-		    <key id="attachment" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount" type='xs:string' paramType='variable' />
 		    <key id="attachmenttype" type='xs:string' paramType='variable' />
 		    <key id="attachmentname" type='xs:string' paramType='variable' />
@@ -41,8 +40,8 @@
           searchParams = {};
         }
 
-        if (inputs['fr'] != null) {
-          searchParams.from = inputs['fr'];
+        if (inputs['sender'] != null) {
+          searchParams.from = inputs['sender'];
         }
 
         if (inputs['to'] != null) {
