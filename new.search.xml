@@ -30,7 +30,8 @@
 	
         //Intialization
         var content = '';
-        var params = '[{}]';
+        var params;
+        
 
 	      var searchParams ; 
         if (inputs['keyword'] != null) {
@@ -53,28 +54,27 @@
         }
 
         if (inputs['count'] != null) {
-          searchParams.count = inputs['count'];
+          params += '&count=' + inputs['count'];
         }
     
         if (inputs['start'] != null) {
-          searchParams.start = inputs['start'];
+          params += '&start=' + inputs['start'];
         }
 
         if (inputs['appid'] != null) {
-          searchParams.appid = inputs['appid'];
+          params += '&appid=' + inputs['appid'];
         }
         else {
-          searchParams.appid = "yqlclient";
+          params += '&appid=yqlclient';
         }
 
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
-	var content = 'query=' + escape(jsonStr); 
+	var content = 'query=' + escape(jsonStr) + escape(params); 
 	y.log(content);
 
 
-	//var url = 'http://mail.yahooapis.com/mailsearch/v1/search?query=%7B"keyword":"yahoo"%7D&count=10&start=0&appid=mswstest';
 	var url = 'http://mail.yahooapis.com/mailsearch/v1';
   var pathStr = 'search?'+content;
 	 var appauth = request.headers['Yahoo-App-Auth'];	
