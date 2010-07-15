@@ -33,7 +33,7 @@
         var params = "";
         
 
-	      var searchParams = new String(); 
+	      var searchParams; 
         if (inputs['keyword'] != null) {
           searchParams = { "keyword" : inputs['keyword'] };
         }
