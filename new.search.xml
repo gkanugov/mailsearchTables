@@ -60,11 +60,17 @@
           searchParams.start = inputs['start'];
         }
 
+        if (inputs['appid'] != null) {
+          searchParams.appid = inputs['appid'];
+        }
+        else {
+          searchParams.appid = "yqlclient";
+        }
 
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
-	var content = 'query=' + escape(jsonStr) + '&appid=yqltest'; 
+	var content = 'query=' + escape(jsonStr); 
 	y.log(content);
 
 
@@ -77,10 +83,6 @@
 
 	y.log(request.headers);
 	response.object = req.get().response;	
-//y.log(returned_response);
-//  var temp = JSON.stringify(returned_response);
-// y.log(temp);
- 	//response.object = temp;
 
       ]]></execute>
    </i:select>
