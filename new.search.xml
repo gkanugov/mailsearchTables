@@ -30,7 +30,7 @@
 	
         //Intialization
         var content = '';
-        var params = '';
+        var params = "";
         
 
 	      var searchParams ; 
