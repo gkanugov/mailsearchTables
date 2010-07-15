@@ -72,7 +72,7 @@
         var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
-	var content = 'query=' + escape(jsonStr) + '&count=10&start=0&appid=yqltest'; 
+	var content = 'query=' + escape(jsonStr) + params; 
 	y.log(content);
 
 
