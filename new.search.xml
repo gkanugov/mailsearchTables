@@ -33,12 +33,9 @@
         var content = '';
         var params = '[{}]';
 
-	      var searchParams; 
+	      var searchParams ; 
         if (inputs['query'] != null) {
-          searchParams = { "keyword" : inputs['query']  };
-        }
-        else {
-          searchParams = { "keyword" : "" };
+          searchParams.keyword += inputs['keyword'];
         }
 
         if (inputs['fr'] != null) {
