@@ -2,9 +2,8 @@
 <i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user">
   <meta>
     <author>Yahoo! Inc.</author>
-    <sampleQuery>select * from {table} where numMid='3'</sampleQuery>
 	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
-	<description> This table helps you to list messages or search content in your mailbox </description>
+	<description> This table helps you search messages in your mailbox </description>
   </meta>
   <i:bindings>
    <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
@@ -14,7 +13,8 @@
 	   	  <key id="to" type='xs:string' paramType='variable' />
 	 	    <key id="subject" type='xs:string' paramType='variable'/>
 		    <key id="cc" type='xs:string' paramType='variable' />
-		    <key id="flags" type='xs:string' paramType='variable' />
+		    <key id="flagged" type='xs:string' paramType='variable' />
+		    <key id="read" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount" type='xs:string' paramType='variable' />
 		    <key id="attachmenttype" type='xs:string' paramType='variable' />
 		    <key id="attachmentname" type='xs:string' paramType='variable' />
@@ -31,7 +31,8 @@
         //Intialization
         var content = '';
         var params = "";
-        
+        var flags = new Object;
+        var bFlags = false;
 
 	      var searchParams; 
         if (inputs['keyword'] != null) {
@@ -67,6 +68,20 @@
 
         if (inputs['attachmentname'] != null) {
           searchParams.attachmentname = inputs['attachmentname'];
+        }
+  
+        if (inputs['read'] != null) {
+          flags.read = inputs['read'];
+          bFlags = true;
+        }
+
+        if (inputs['flagged'] != null) {
+          flags.flagged = inputs['flagged'];
+          bFlags = true;
+        }
+
+        if (bFlags) {
+          searchParams.flags = flags;
         }
 
         if (inputs['count'] != null) {
