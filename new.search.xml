@@ -13,6 +13,8 @@
 	   	  <key id="to" type='xs:string' paramType='variable' />
 	 	    <key id="subject" type='xs:string' paramType='variable'/>
 		    <key id="cc" type='xs:string' paramType='variable' />
+		    <key id="date-start" type='xs:string' paramType='variable' />
+		    <key id="date-end" type='xs:string' paramType='variable' />
 		    <key id="flagged" type='xs:string' paramType='variable' />
 		    <key id="read" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount-min" type='xs:string' paramType='variable' />
@@ -39,6 +41,9 @@
         var attCount = new Object;
         var bAttCount = false;
 
+        var dates = new Object;
+        var bHasDates = false;
+
 	      var searchParams; 
         if (inputs['keyword'] != null) {
           searchParams = { "keyword" : inputs['keyword'] };
@@ -61,6 +66,22 @@
 
         if (inputs['cc'] != null) {
           searchParams.cc= inputs['cc'];
+        }
+
+        if (inputs['date-start'] != null) {
+          var myDate = new Date(inputs['date-start']);
+          dates.start = myDate.getTime()/1000;
+          bHasDates = true;
+        }
+
+        if (inputs['date-end'] != null) {
+          var myDate = new Date(inputs['date-end']);
+          dates.end= myDate.getTime()/1000;
+          bHasDates = true;
+        }
+
+        if( bHasDates ) {
+          searchParams.date = dates;
         }
 
         if (inputs['attachmentcount-min'] != null) {
