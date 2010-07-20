@@ -13,8 +13,8 @@
 	   	  <key id="to" type='xs:string' paramType='variable' />
 	 	    <key id="subject" type='xs:string' paramType='variable'/>
 		    <key id="cc" type='xs:string' paramType='variable' />
-		    <key id="flagged" type='xs:string' paramType='variable' />
-		    <key id="read" type='xs:string' paramType='variable' />
+		    <key id="flagged" type='xs:int' paramType='variable' />
+		    <key id="read" type='xs:int' paramType='variable' />
 		    <key id="attachmentcount" type='xs:string' paramType='variable' />
 		    <key id="attachmenttype" type='xs:string' paramType='variable' />
 		    <key id="attachmentname" type='xs:string' paramType='variable' />
