@@ -64,12 +64,12 @@
         }
 
         if (inputs['attachmentcount-min'] != null) {
-          attCount.min = inputs['attachmentcount-min'];
+          attCount.min = parseInt(inputs['attachmentcount-min']);
           bAttCount = true;
         }
 
         if (inputs['attachmentcount-max'] != null) {
-          attCount.max = inputs['attachmentcount-max'];
+          attCount.max = parseInt(inputs['attachmentcount-max']);
           bAttCount = true;
         }
 
