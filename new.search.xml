@@ -15,7 +15,8 @@
 		    <key id="cc" type='xs:string' paramType='variable' />
 		    <key id="flagged" type='xs:string' paramType='variable' />
 		    <key id="read" type='xs:string' paramType='variable' />
-		    <key id="attachmentcount" type='xs:string' paramType='variable' />
+		    <key id="attachmentcount-min" type='xs:string' paramType='variable' />
+		    <key id="attachmentcount-max" type='xs:string' paramType='variable' />
 		    <key id="attachmenttype" type='xs:string' paramType='variable' />
 		    <key id="attachmentname" type='xs:string' paramType='variable' />
 		    <key id="fid" type='xs:string' paramType='variable' />
@@ -31,8 +32,12 @@
         //Intialization
         var content = '';
         var params = "";
+    
         var flags = new Object;
         var bFlags = false;
+    
+        var attCount = new Object;
+        var bAttCount = false;
 
 	      var searchParams; 
         if (inputs['keyword'] != null) {
@@ -58,10 +63,20 @@
           searchParams.cc= inputs['cc'];
         }
 
-        if (inputs['attachmentcount'] != null) {
-          searchParams.attachmentcount = inputs['attachmentcount'];
+        if (inputs['attachmentcount-min'] != null) {
+          attCount.min = inputs['attachmentcount-min'];
+          bAttCount = true;
         }
-        
+
+        if (inputs['attachmentcount-max'] != null) {
+          attCount.max = inputs['attachmentcount-max'];
+          bAttCount = true;
+        }
+
+        if (bAttCount) {
+          searchParams.attachmentcount = attCount;
+        }        
+
         if (inputs['attachmenttype'] != null) {
           searchParams.attachmenttype = inputs['attachmenttype'];
         }
