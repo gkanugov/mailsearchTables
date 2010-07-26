@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user">
+  <meta>
+    <author>Yahoo! Inc.</author>
+	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
+	<description> This table helps you search messages in your mailbox </description>
+  </meta>
+  <i:bindings>
+   <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
+      <inputs>
+	  	  <key id="keyword" type='xs:string' paramType='variable' />
+		    <key id="sender" type='xs:string' paramType='variable' />
+	   	  <key id="to" type='xs:string' paramType='variable' />
+	 	    <key id="subject" type='xs:string' paramType='variable'/>
+		    <key id="cc" type='xs:string' paramType='variable' />
+		    <key id="date-start" type='xs:string' paramType='variable' />
+		    <key id="date-end" type='xs:string' paramType='variable' />
+		    <key id="flagged" type='xs:string' paramType='variable' />
+		    <key id="read" type='xs:string' paramType='variable' />
+		    <key id="attachmentcount-min" type='xs:string' paramType='variable' />
+		    <key id="attachmentcount-max" type='xs:string' paramType='variable' />
+		    <key id="attachmenttype" type='xs:string' paramType='variable' />
+		    <key id="attachmentname" type='xs:string' paramType='variable' />
+		    <key id="fid" type='xs:string' paramType='variable' />
+		    <key id="count" type='xs:string' paramType='variable' />
+		    <key id="start" type='xs:string' paramType='variable' />
+		    <key id="appid" type='xs:string' paramType='variable' />
+	  </inputs>
+	  <execute><![CDATA[
+		
+		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/messages.js");
+		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
+	
+        //Intialization
+        var content = '';
+        var params = "";
+    
+        var flags = new Object;
+        var bFlags = false;
+    
+        var attCount = new Object;
+        var bAttCount = false;
+
+        var dates = new Object;
+        var bHasDates = false;
+
+	      var searchParams; 
+        if (inputs['keyword'] != null) {
+          searchParams = { "keyword" : inputs['keyword'] };
+        }
+        else {
+          searchParams = { };
+        }
+
+        if (inputs['sender'] != null) {
+          searchParams.from = inputs['sender'];
+        }
+
+        if (inputs['to'] != null) {
+          searchParams.to = inputs['to'];
+        }
+
+        if (inputs['subject'] != null) {
+          searchParams.subject = inputs['subject'];
+        }
+
+        if (inputs['cc'] != null) {
+          searchParams.cc= inputs['cc'];
+        }
+
+        if (inputs['date-start'] != null) {
+          var myDate = new Date(inputs['date-start']);
+          dates.start = myDate.getTime()/1000;
+          bHasDates = true;
+        }
+
+        if (inputs['date-end'] != null) {
+          var myDate = new Date(inputs['date-end']);
+          dates.end= myDate.getTime()/1000;
+          bHasDates = true;
+        }
+
+        if( bHasDates ) {
+          searchParams.date = dates;
+        }
+
+        if (inputs['attachmentcount-min'] != null) {
+          attCount.min = parseInt(inputs['attachmentcount-min']);
+          bAttCount = true;
+        }
+
+        if (inputs['attachmentcount-max'] != null) {
+          attCount.max = parseInt(inputs['attachmentcount-max']);
+          bAttCount = true;
+        }
+
+        if (bAttCount) {
+          searchParams.attachmentcount = attCount;
+        }        
+
+        if (inputs['attachmenttype'] != null) {
+          searchParams.attachmenttype = inputs['attachmenttype'];
+        }
+
+        if (inputs['attachmentname'] != null) {
+          searchParams.attachmentname = inputs['attachmentname'];
+        }
+  
+        if (inputs['read'] != null) {
+          flags.read = parseInt(inputs['read']);
+          bFlags = true;
+        }
+
+        if (inputs['flagged'] != null) {
+          flags.flagged = parseInt(inputs['flagged']);
+          bFlags = true;
+        }
+
+        if (bFlags) {
+          searchParams.flags = flags;
+        }
+
+        if (inputs['count'] != null) {
+          params += '&count=' + inputs['count'];
+        }
+    
+        if (inputs['start'] != null) {
+          params += '&start=' + inputs['start'];
+        }
+
+        if (inputs['appid'] != null) {
+          params += '&appid=' + inputs['appid'];
+        }
+        else {
+          params += '&appid=yqlclient';
+        }
+        y.log(params);
+
+        var jsonStr = JSON.stringify(searchParams);
+        y.log(jsonStr);
+
+	var content = 'query=' + escape(jsonStr) + params; 
+	y.log(content);
+
+
+	var url = 'http://mail.yahooapis.com/mailsearch/v1';
+  var pathStr = 'search?'+content;
+	 var appauth = request.headers['Yahoo-App-Auth'];	
+	var req = y.rest(url).path(pathStr).header('Authorization', internal.auth.authorization);
+	 if (appauth) req.header('Yahoo-App-Auth', appauth);
+
+	y.log(request.headers);
+	response.object = req.get().response;	
+
+      ]]></execute>
+   </i:select>
+  </i:bindings>
+</i:table>
