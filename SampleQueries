@@ -1,0 +1,7 @@
+use "http://github.com/gkanugov/mailsearchTables/raw/master/ymail.search.xml" as ymail.search; select * from ymail.search where keyword="Yahoo";
+use "http://github.com/gkanugov/mailsearchTables/raw/master/ymail.search.xml" as ymail.search; select * from ymail.search where sender="Joe" and subject="hello";
+use "http://github.com/gkanugov/mailsearchTables/raw/master/ymail.search.xml" as ymail.search; select * from ymail.search where date-start="July 1,2010" and date-end="July 20,2010";
+use "http://github.com/gkanugov/mailsearchTables/raw/master/ymail.search.xml" as ymail.search; select * from ymail.search where subject="welcome" or subject="hello";
+use "http://github.com/gkanugov/mailsearchTables/raw/master/ymail.search.xml" as ymail.search; select * from ymail.search where attachmenttype="jpeg";
+use "http://github.com/gkanugov/mailsearchTables/raw/master/ymail.search.xml" as ymail.search; select * from ymail.search where attachmentcount-min=2 and attachmentcount-max=4;
+
