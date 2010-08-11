@@ -17,6 +17,8 @@
 		    <key id="date-end" type='xs:string' paramType='variable' />
 		    <key id="flagged" type='xs:string' paramType='variable' />
 		    <key id="read" type='xs:string' paramType='variable' />
+		    <key id="replied" type='xs:string' paramType='variable' />
+		    <key id="forwarded" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount-min" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount-max" type='xs:string' paramType='variable' />
 		    <key id="attachmenttype" type='xs:string' paramType='variable' />
@@ -112,6 +114,16 @@
 
         if (inputs['flagged'] != null) {
           flags.flagged = parseInt(inputs['flagged']);
+          bFlags = true;
+        }
+
+        if (inputs['replied'] != null) {
+          flags.replied = parseInt(inputs['replied']);
+          bFlags = true;
+        }
+
+        if (inputs['forwarded'] != null) {
+          flags.forwarded= parseInt(inputs['forwarded']);
           bFlags = true;
         }
 
