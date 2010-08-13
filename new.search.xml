@@ -151,9 +151,12 @@
 	y.log(request.headers);
 	//response.object = req.get().response;	
   var search = req.get().response;
-for each (var searchHits in search) {
- y.log(searchHits.total);
+ var total = 0;
+for each (var stotal in search.total) {
+ total += stotal;
 }
+
+y.log(total);
 
       ]]></execute>
    </i:select>
