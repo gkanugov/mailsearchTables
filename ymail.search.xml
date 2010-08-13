@@ -161,9 +161,8 @@
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
-	//response.object = req.get().response;	
-  var results = req.get().response;
-  response.object = results.folders;
+ response.object = req.get().response;	
+  
 
       ]]></execute>
    </i:select>
