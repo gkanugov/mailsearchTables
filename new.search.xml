@@ -28,7 +28,6 @@
 	  </inputs>
 	  <execute><![CDATA[
 		
-		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/messages.js");
 		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
 	
         //Intialization
