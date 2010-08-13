@@ -151,7 +151,7 @@
 	y.log(request.headers);
 	//response.object = req.get().response;	
   var search = req.get().response;
- y.log(search);
+ y.log(search.json.folders);
 
       ]]></execute>
    </i:select>
