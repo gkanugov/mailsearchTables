@@ -21,7 +21,7 @@
 		    <key id="forwarded" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount-min" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount-max" type='xs:string' paramType='variable' />
-		    <key id="attachmenttype" type='xs:string' paramType='variable' />
+		    <key id="attachmenttypes" type='xs:string' paramType='variable' />
 		    <key id="attachmentname" type='xs:string' paramType='variable' />
 		    <key id="fid" type='xs:string' paramType='variable' />
 		    <key id="count" type='xs:string' paramType='variable' />
@@ -100,7 +100,7 @@
         }        
 
         if (inputs['attachmenttype'] != null) {
-          searchParams.attachmenttype = inputs['attachmenttype'];
+          searchParams.attachmenttypes = inputs['attachmenttypes'];
         }
 
         if (inputs['attachmentname'] != null) {
