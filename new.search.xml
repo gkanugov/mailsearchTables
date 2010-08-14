@@ -25,7 +25,7 @@
 		    <key id="count" type='xs:string' paramType='variable' />
 		    <key id="start" type='xs:string' paramType='variable' />
 		    <key id="appid" type='xs:string' paramType='variable' />
-        <key id="total" type='xs:number' paramType='variable' />
+        <key id="total" type='xs:string' paramType='variable' />
 	  </inputs>
 	  <execute><![CDATA[
 		
@@ -153,7 +153,7 @@
 	//response.object = req.get().response;	
   var search = req.get().response;
 for each (var stotal in search.total) {
- inputs['total'] += stotal;
+ inputs['total'] = parseInt(inputs['total']) + stotal;
 }
 
 y.log(inputs['total']);
