@@ -153,7 +153,7 @@
 	//response.object = req.get().response;	
   var search = req.get().response;
 for each (var stotal in search.total) {
- inputs['total'] = parseInt(inputs['total']) + stotal;
+ inputs['total'] = parseInt(parseInt(inputs['total']) + stotal);
 }
 
 y.log(inputs['total']);
