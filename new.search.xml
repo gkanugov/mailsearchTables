@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user">
+<table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user">
   <meta>
     <author>Yahoo! Inc.</author>
 	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
 	<description> This table helps you search messages in your mailbox </description>
   </meta>
-  <i:bindings>
-   <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
+  <bindings>
+   <select itemPath="json" produces="JSON" auth="yahooOauth" >
       <inputs>
 	  	  <key id="keyword" type='xs:string' paramType='variable' />
 		    <key id="sender" type='xs:string' paramType='variable' />
@@ -163,6 +163,6 @@ y.log(inputs['total']);
 
 
       ]]></execute>
-   </i:select>
-  </i:bindings>
-</i:table>
+   </select>
+  </bindings>
+</table>
