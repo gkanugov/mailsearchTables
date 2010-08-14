@@ -99,7 +99,7 @@
           searchParams.attachmentcount = attCount;
         }        
 
-        if (inputs['attachmenttype'] != null) {
+        if (inputs['attachmenttypes'] != null) {
           searchParams.attachmenttypes = inputs['attachmenttypes'];
         }
 
