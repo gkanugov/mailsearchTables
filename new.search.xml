@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user">
+<i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user">
   <meta>
     <author>Yahoo! Inc.</author>
 	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
 	<description> This table helps you search messages in your mailbox </description>
   </meta>
-  <bindings>
-   <select itemPath="json" produces="JSON" auth="yahooOauth" >
+  <i:bindings>
+   <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
       <inputs>
 	  	  <key id="keyword" type='xs:string' paramType='variable' />
 		    <key id="sender" type='xs:string' paramType='variable' />
@@ -17,15 +17,16 @@
 		    <key id="date-end" type='xs:string' paramType='variable' />
 		    <key id="flagged" type='xs:string' paramType='variable' />
 		    <key id="read" type='xs:string' paramType='variable' />
+		    <key id="replied" type='xs:string' paramType='variable' />
+		    <key id="forwarded" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount-min" type='xs:string' paramType='variable' />
 		    <key id="attachmentcount-max" type='xs:string' paramType='variable' />
-		    <key id="attachmenttype" type='xs:string' paramType='variable' />
+		    <key id="attachmenttypes" type='xs:string' paramType='variable' />
 		    <key id="attachmentname" type='xs:string' paramType='variable' />
 		    <key id="fid" type='xs:string' paramType='variable' />
 		    <key id="count" type='xs:string' paramType='variable' />
 		    <key id="start" type='xs:string' paramType='variable' />
 		    <key id="appid" type='xs:string' paramType='variable' />
-        <key id="total" type='xs:int' paramType='variable' />
 	  </inputs>
 	  <execute><![CDATA[
 		
@@ -98,8 +99,8 @@
           searchParams.attachmentcount = attCount;
         }        
 
-        if (inputs['attachmenttype'] != null) {
-          searchParams.attachmenttype = inputs['attachmenttype'];
+        if (inputs['attachmenttypes'] != null) {
+          searchParams.attachmenttypes = inputs['attachmenttypes'];
         }
 
         if (inputs['attachmentname'] != null) {
@@ -113,6 +114,16 @@
 
         if (inputs['flagged'] != null) {
           flags.flagged = parseInt(inputs['flagged']);
+          bFlags = true;
+        }
+
+        if (inputs['replied'] != null) {
+          flags.replied = parseInt(inputs['replied']);
+          bFlags = true;
+        }
+
+        if (inputs['forwarded'] != null) {
+          flags.forwarded= parseInt(inputs['forwarded']);
           bFlags = true;
         }
 
@@ -150,19 +161,13 @@
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
-	//response.object = req.get().response;	
-  var search = req.get().response;
-if (inputs['total'] == null ) {
-inputs['total'] = 0;
-}
-for each (var stotal in search.total) {
- inputs['total'] +=  parseInt(stotal);
-}
-
-y.log(inputs['total']);
-
+ var search = req.get().response;	
+ for each (var folder in search.folders) {
+  y.log(folder);
+ }
+  
 
       ]]></execute>
-   </select>
-  </bindings>
-</table>
+   </i:select>
+  </i:bindings>
+</i:table>
