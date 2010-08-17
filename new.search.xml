@@ -162,10 +162,8 @@
  var search = req.get().response;	
  //response.object = req.get().response;	
 
- for each (var fldr in search.folders) {
-  f = JSON.parse(fldr) ;
+  f = JSON.parse(search.folders) ;
   y.log(f);
-}
 
 
       ]]></execute>
