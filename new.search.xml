@@ -165,7 +165,7 @@
 
  for each (var folder in search.folders) {
   fldr = JSON.stringify(folder);
-  y.log(fld);
+  y.log(fldr);
  }
   
 
