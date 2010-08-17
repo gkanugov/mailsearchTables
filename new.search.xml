@@ -70,14 +70,12 @@
         }
 
         if (inputs['date-start'] != null) {
-          var myDate = new Date(inputs['date-start']);
-          dates.start = myDate.getTime()/1000;
+          dates.start = parseInt(inputs['date-start]);
           bHasDates = true;
         }
 
         if (inputs['date-end'] != null) {
-          var myDate = new Date(inputs['date-end']);
-          dates.end= myDate.getTime()/1000;
+          dates.end= parseInt(inputs['date-end']);
           bHasDates = true;
         }
 
@@ -161,12 +159,12 @@
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
- var search = req.get().response;	
+ //var search = req.get().response;	
+ response.object = req.get().response;	
 
- for each (var folder in search.folders) {
-  var fldr = JSON.stringify(folder);
-  y.log(fldr);
- }
+ //for each (var folder in search.folders) {
+  
+ //}
   
 
       ]]></execute>
