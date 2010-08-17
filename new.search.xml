@@ -163,7 +163,7 @@
 	y.log(request.headers);
  var search = req.get().response;	
  for each (var folder in search.folders) {
-   y.log(folders["1"]);
+   y.log(folder["1"]);
  }
   
 
