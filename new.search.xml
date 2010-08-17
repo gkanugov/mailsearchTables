@@ -162,8 +162,10 @@
 
 	y.log(request.headers);
  var search = req.get().response;	
+
  for each (var folder in search.folders) {
-   y.log(folder["1"]);
+  fldr = json.encode(folder);
+  y.log(fld);
  }
   
 
