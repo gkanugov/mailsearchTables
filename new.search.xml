@@ -32,6 +32,8 @@
 	  <execute><![CDATA[
 		
 		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
+    y.include("http://yui.yahooapis.com/2.8.1/build/yahoo/yahoo-min.js");
+    y.include("http://yui.yahooapis.com/2.8.1/build/json/json-min.js");
 
         //Intialization
         var content = '';
@@ -163,7 +165,7 @@
  var search = req.get().response;	
  //response.object = req.get().response;	
  
- var f = JSON.parse(search.folders, function (key, value) { return value; });
+ var f = YAHOO.lang.JSON.parse(search.folders);
 
       ]]></execute>
    </i:select>
