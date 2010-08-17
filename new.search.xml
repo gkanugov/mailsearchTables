@@ -163,7 +163,7 @@
  //response.object = req.get().response;	
 
  for each (var fldr in search.folders) {
-  f = JSON.parse(fldr, function(key, value) { return value; } ) ;
+  f = JSON.parse(fldr) ;
   y.log(f);
 }
 
