@@ -31,7 +31,7 @@
 	  </inputs>
 	  <execute><![CDATA[
 		
-		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
+		//y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
     y.include("http://yui.yahooapis.com/2.8.1/build/yahoo/yahoo-min.js");
     y.include("http://yui.yahooapis.com/2.8.1/build/json/json-min.js");
 
@@ -148,7 +148,7 @@
         }
         y.log(params);
 
-        var jsonStr = JSON.stringify(searchParams);
+        var jsonStr = YAHOO.lang.JSON.stringify(searchParams);
         y.log(jsonStr);
 
 	var content = 'query=' + escape(jsonStr) + params; 
