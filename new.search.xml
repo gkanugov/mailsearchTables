@@ -70,7 +70,7 @@
         }
 
         if (inputs['date-start'] != null) {
-          dates.start = parseInt(inputs['date-start]);
+          dates.start = parseInt(inputs['date-start']);
           bHasDates = true;
         }
 
@@ -162,10 +162,6 @@
  //var search = req.get().response;	
  response.object = req.get().response;	
 
- //for each (var folder in search.folders) {
-  
- //}
-  
 
       ]]></execute>
    </i:select>
