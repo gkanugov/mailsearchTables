@@ -54,7 +54,7 @@
         }
 
         if (inputs['date-end'] != null) {
-          dates.end= parseInt(inputs['date-end']);
+          dates.end = parseInt(inputs['date-end']);
           bHasDates = true;
         }
 
