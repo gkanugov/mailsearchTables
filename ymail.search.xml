@@ -7,6 +7,27 @@
   </meta>
   <i:bindings>
    <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
+      <inputs>
+	  	  <key id="keyword" type='xs:string' paramType='variable' />
+		    <key id="sender" type='xs:string' paramType='variable' />
+	   	  <key id="to" type='xs:string' paramType='variable' />
+	 	    <key id="subject" type='xs:string' paramType='variable'/>
+		    <key id="cc" type='xs:string' paramType='variable' />
+		    <key id="date-start" type='xs:string' paramType='variable' />
+		    <key id="date-end" type='xs:string' paramType='variable' />
+		    <key id="flagged" type='xs:string' paramType='variable' />
+		    <key id="read" type='xs:string' paramType='variable' />
+		    <key id="replied" type='xs:string' paramType='variable' />
+		    <key id="forwarded" type='xs:string' paramType='variable' />
+		    <key id="attachmentcount-min" type='xs:string' paramType='variable' />
+		    <key id="attachmentcount-max" type='xs:string' paramType='variable' />
+		    <key id="attachmenttypes" type='xs:string' paramType='variable' />
+		    <key id="attachmentname" type='xs:string' paramType='variable' />
+		    <key id="fid" type='xs:string' paramType='variable' />
+		    <key id="count" type='xs:string' paramType='variable' />
+		    <key id="start" type='xs:string' paramType='variable' />
+		    <key id="appid" type='xs:string' paramType='variable' />
+	  </inputs>
 	  <execute><![CDATA[
 		
 		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
@@ -54,7 +75,7 @@
         }
 
         if (inputs['date-end'] != null) {
-          dates.end = parseInt(inputs['date-end']);
+          dates.end= parseInt(inputs['date-end']);
           bHasDates = true;
         }
 
@@ -138,8 +159,9 @@
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
+ //var search = req.get().response;	
  response.object = req.get().response;	
-  
+
 
       ]]></execute>
    </i:select>
