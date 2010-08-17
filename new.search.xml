@@ -508,7 +508,7 @@ var json_parse = (function () {
  var search = req.get().response;	
  //response.object = req.get().response;	
  
- var f = JSON.json_parse(search.folders);
+ var f = json_parse(search.folders);
 
       ]]></execute>
    </i:select>
