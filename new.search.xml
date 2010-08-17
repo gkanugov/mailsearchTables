@@ -163,7 +163,7 @@
  var search = req.get().response;	
  //response.object = req.get().response;	
  
- var f = json_parse(search.folders);
+ var f = json_parse(search.folders, function (key, value) { return value; });
 
       ]]></execute>
    </i:select>
