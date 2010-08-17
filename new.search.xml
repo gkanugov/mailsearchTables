@@ -27,6 +27,7 @@
 		    <key id="count" type='xs:string' paramType='variable' />
 		    <key id="start" type='xs:string' paramType='variable' />
 		    <key id="appid" type='xs:string' paramType='variable' />
+		    <key id="total" type='xs:string' paramType='variable' />
 	  </inputs>
 	  <execute><![CDATA[
 		
@@ -161,10 +162,8 @@
 	y.log(request.headers);
  var search = req.get().response;	
  //response.object = req.get().response;	
-
-  f = JSON.parse(search.folders) ;
-  y.log(f);
-
+ 
+ var f = JSON.parse(search.folders);
 
       ]]></execute>
    </i:select>
