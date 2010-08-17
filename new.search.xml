@@ -164,7 +164,7 @@
  var search = req.get().response;	
 
  for each (var folder in search.folders) {
-  fldr = JSON.stringify(folder);
+  var fldr = JSON.stringify(folder);
   y.log(fldr);
  }
   
