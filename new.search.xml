@@ -32,7 +32,7 @@
 		
 		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
     y.include("http://yui.yahooapis.com/2.8.1/build/yahoo/yahoo-min.js");
-    y.include("http://yui.yahooapis.com/2.8.1/build/json/json-min.js");
+    //y.include("http://yui.yahooapis.com/2.8.1/build/json/json-min.js");
 	
         //Intialization
         var content = '';
