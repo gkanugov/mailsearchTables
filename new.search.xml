@@ -164,7 +164,7 @@
  //var f = JSON.parse(search);
 var fldr = new Object;
 fldr = search.folders;
-y.log(fldr.1);
+y.log(fldr._);
 
 
       ]]></execute>
