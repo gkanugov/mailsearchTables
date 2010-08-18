@@ -162,7 +162,7 @@
  var search = req.get().response;	
  //response.object = req.get().response;	
  //var f = JSON.parse(search);
-y.log(search.folders);
+y.log(search.folders.1);
 
 
       ]]></execute>
