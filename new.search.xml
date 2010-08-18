@@ -27,14 +27,13 @@
 		    <key id="count" type='xs:string' paramType='variable' />
 		    <key id="start" type='xs:string' paramType='variable' />
 		    <key id="appid" type='xs:string' paramType='variable' />
-		    <key id="total" type='xs:string' paramType='variable' />
 	  </inputs>
 	  <execute><![CDATA[
 		
-		//y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
-    //y.include("http://yui.yahooapis.com/2.8.1/build/yahoo/yahoo-min.js");
-    //y.include("http://yui.yahooapis.com/2.8.1/build/json/json-min.js");
-
+		y.include("http://github.com/gkanugov/mailsearchTables/raw/master/json2.js");
+    y.include("http://yui.yahooapis.com/2.8.1/build/yahoo/yahoo-min.js");
+    y.include("http://yui.yahooapis.com/2.8.1/build/json/json-min.js");
+	
         //Intialization
         var content = '';
         var params = "";
@@ -148,7 +147,7 @@
         }
         y.log(params);
 
-        var jsonStr = YAHOO.lang.JSON.stringify(searchParams);
+        var jsonStr = JSON.stringify(searchParams);
         y.log(jsonStr);
 
 	var content = 'query=' + escape(jsonStr) + params; 
@@ -164,8 +163,8 @@
 	y.log(request.headers);
  var search = req.get().response;	
  //response.object = req.get().response;	
- 
- //var f = YAHOO.lang.JSON.parse(search.folders);
+//var f = YAHOO.lang.JSON.parse(search.folders);
+
 
       ]]></execute>
    </i:select>
