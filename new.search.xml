@@ -168,8 +168,8 @@
  var hits = new Array();
  hits = search.hits;
  for (var i=0; i<search.total;i++) {
-    if(hits[i] != null) {
-      if (hits[i].attachments != null) {
+    if(hits[i] != undefined) {
+      if (hits[i].attachments != undefined) {
         var atts = new Array();
         atts = hits[i].attachments;
         for (var j=0; j<10; j++) {
