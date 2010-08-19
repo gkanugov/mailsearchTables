@@ -167,7 +167,9 @@
  //var f = JSON.parse(search);
  var hits = new Array();
  hits = search.hits;
- y.log(hits[0]);
+ for (var i=0; i<hits.length; i++) {
+  y.log(hits[i].attachments[0]);
+ }
 
 
       ]]></execute>
