@@ -168,7 +168,7 @@
  var hits = new Array();
  hits = search.hits;
  for (var i=0; i<hits.length; i++) {
-  y.log(hits[i].attachments[0]);
+  y.log(hits[i]);
  }
 
 
