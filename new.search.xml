@@ -165,8 +165,9 @@
  var search = req.get().response;	
  //response.object = req.get().response;	
  //var f = JSON.parse(search);
- var hits = new Array();
- hits = search.hits;
+ var hitArray = new Array();
+ hitArray = search.hits;
+y.log(hitArray.length);
  for (var i=0; i<search.total;i++) {
     if(hits[i] != undefined) {
       if (hits[i].attachments != undefined) {
