@@ -5,9 +5,9 @@
 	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
 	<description> This table helps you search messages in your mailbox </description>
   </meta>
- <execute> <! [CDATA[
+ <execute><![CDATA[
         var gTotal = 0;
- ]]> </execute>
+ ]]></execute>
   <i:bindings>
    <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
       <inputs>
