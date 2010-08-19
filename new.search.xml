@@ -165,9 +165,9 @@
  var search = req.get().response;	
  //response.object = req.get().response;	
  //var f = JSON.parse(search);
- y.log(gTotal);
- gTotal = gTotal + search.total;
- y.log(gTotal);
+ var hits = new Array();
+ hits = search.hits;
+ y.log(hits[0]);
 
 
       ]]></execute>
