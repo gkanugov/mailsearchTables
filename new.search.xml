@@ -5,6 +5,9 @@
 	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
 	<description> This table helps you search messages in your mailbox </description>
   </meta>
+ <execute> <! [CDATA[
+        var gTotal = 0;
+ ]]>
   <i:bindings>
    <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
       <inputs>
@@ -162,9 +165,8 @@
  var search = req.get().response;	
  //response.object = req.get().response;	
  //var f = JSON.parse(search);
-var fldr = new Object;
-fldr = search.folders;
-y.log(fldr._);
+ gTotal = gTotal + search.total;
+ y.log(gTotal);
 
 
       ]]></execute>

@@ -30,7 +30,7 @@
 	  </inputs>
 	  <execute><![CDATA[
   
-        /*
+    /*
     http://www.JSON.org/json2.js
     2010-03-20
 
@@ -642,7 +642,6 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
- //var search = req.get().response;	
  response.object = req.get().response;	
 
 
