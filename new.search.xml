@@ -7,7 +7,7 @@
   </meta>
  <execute> <! [CDATA[
         var gTotal = 0;
- ]]>
+ ]]> </execute>
   <i:bindings>
    <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
       <inputs>
