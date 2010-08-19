@@ -172,7 +172,9 @@
       if (hits[i].attachments != null) {
         var atts = new Array();
         atts = hits[i].attachments;
-        y.log(atts[0]);
+        for (var j=0; j<10; j++) {
+        y.log(atts[j].thumbnailurl);
+        }
       }
     }
  }
