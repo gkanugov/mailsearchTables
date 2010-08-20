@@ -176,6 +176,7 @@
     
  }
  var f = hitArray[0].fid;
+ y.log(f);
  y.log(search.folders.f);
  response.object = search;
 
