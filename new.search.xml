@@ -167,7 +167,7 @@
     if (hit.attachments != undefined) {
     var attachmentArray = [];
     attachmentArray = hit.attachments;
-    y.log(attachmentArray[0]);
+    y.log("entered");
     }
     
  }
