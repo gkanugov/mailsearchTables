@@ -165,9 +165,14 @@
  hitArray = search.hits;
  for each (var hit in hitArray) {
     if (hit.attachments != null) {
-    var attachmentArray = [];
-    attachmentArray = hit.attachments;
-    y.log("entered");
+      var attachmentArray = [];
+      attachmentArray = hit.attachments;
+      for each (var attachment in attachmentArray) {
+        if (attachment.thumbnailurl != null) {
+          delete attachment.thumbnailurl;
+          y.log(attachment);
+        }
+      }
     }
     
  }
