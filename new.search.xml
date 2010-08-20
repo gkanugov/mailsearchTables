@@ -175,6 +175,8 @@
     }
     
  }
+ var f = hitArray[0].fid;
+ y.log(search.folders.f);
  response.object = search;
 
       ]]></execute>
