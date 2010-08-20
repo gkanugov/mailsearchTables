@@ -170,13 +170,12 @@
       for each (var attachment in attachmentArray) {
         if (attachment.thumbnailurl != null) {
           delete attachment.thumbnailurl;
-          y.log(attachment);
         }
       }
     }
     
  }
-
+ response.object = search;
 
       ]]></execute>
    </i:select>
