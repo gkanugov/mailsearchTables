@@ -166,15 +166,16 @@
  search = req.get().response;	
  var hitArray = new Array();
  hitArray = search.hits;
-y.log(hitArray.length);
  for (var i=0; i<search.total;i++) {
     if(hitArray[i] != undefined) {
-      if (hitArray[i].attachments != undefined) {
+      var attc = new Object;
+      attc = hitArray[i].attachments;
+      if (attc != undefined) {
         var atts = new Array();
         atts = hitArray[i].attachments;
-        for (var j=0; j<10; j++) {
-        y.log(atts[j].thumbnailurl);
-        }
+        atts[0].thumbnailurl = null;
+        atts[1].thumbnailurl = null;
+        atts[2].thumbnailurl = null;
       }
     }
  }
