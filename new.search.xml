@@ -164,16 +164,14 @@
 	y.log(request.headers);
  var search = new Object;
  search = req.get().response;	
- //response.object = req.get().response;	
- //var f = JSON.parse(search);
  var hitArray = new Array();
  hitArray = search.hits;
 y.log(hitArray.length);
  for (var i=0; i<search.total;i++) {
-    if(hits[i] != undefined) {
-      if (hits[i].attachments != undefined) {
+    if(hitArray[i] != undefined) {
+      if (hitArray[i].attachments != undefined) {
         var atts = new Array();
-        atts = hits[i].attachments;
+        atts = hitArray[i].attachments;
         for (var j=0; j<10; j++) {
         y.log(atts[j].thumbnailurl);
         }
