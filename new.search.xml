@@ -173,9 +173,15 @@
       if (attc != undefined) {
         var atts = new Array();
         atts = hitArray[i].attachments;
+        if(atts[0] != undefined) {
         atts[0].thumbnailurl = null;
+        }
+        if (atts[1] != undefined) {
         atts[1].thumbnailurl = null;
+        }
+        if(atts[2] != undefined) {
         atts[2].thumbnailurl = null;
+        }
       }
     }
  }
