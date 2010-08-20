@@ -164,7 +164,7 @@
  var hitArray = [];
  hitArray = search.hits;
  for each (var hit in hitArray) {
-    if (hit.attachments != undefined) {
+    if (hit.attachments != null) {
     var attachmentArray = [];
     attachmentArray = hit.attachments;
     y.log("entered");
