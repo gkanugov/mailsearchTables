@@ -5,9 +5,6 @@
 	<sampleQuery>select * from {table} where query='Yahoo'</sampleQuery>
 	<description> This table helps you search messages in your mailbox </description>
   </meta>
- <execute><![CDATA[
-        var gTotal = 0;
- ]]></execute>
   <i:bindings>
    <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
       <inputs>
@@ -164,18 +161,10 @@
 	y.log(request.headers);
  var search = new Object;
  search = req.get().response;	
- var hitArray = new Array();
+ var hitArray = [];
  hitArray = search.hits;
- for (var i=0; i<search.total;i++) {
-    if(hitArray[i] != undefined) {
-      var attc = new Object;
-      attc = hitArray[i].attachments;
-      if (attc != undefined) {
-        var atts = new Array();
-        atts = hitArray[i].attachments;
-        y.log(atts.length);
-      }
-    }
+ for each (var hit in hitArray) {
+  y.log(hit);
  }
 
 
