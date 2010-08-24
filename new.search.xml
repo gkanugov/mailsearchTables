@@ -161,23 +161,25 @@
 	y.log(request.headers);
  var search = new Object;
  search = req.get().response;	
- var hitArray = [];
- hitArray = search.hits;
- for each (var hit in hitArray) {
-    if (hit.attachments != null) {
-      var attachmentArray = [];
-      attachmentArray = hit.attachments;
-      for each (var attachment in attachmentArray) {
-        if (attachment.thumbnailurl != null) {
-          delete attachment.thumbnailurl;
-        }
-      }
-    }
+ //var hitArray = [];
+ //hitArray = search.hits;
+ //for each (var hit in hitArray) {
+   // if (hit.attachments != null) {
+   //   var attachmentArray = [];
+   //   attachmentArray = hit.attachments;
+   //   for each (var attachment in attachmentArray) {
+   //     if (attachment.thumbnailurl != null) {
+   //       delete attachment.thumbnailurl;
+   //     }
+   //   }
+   // }
     
+ //}
+ //var f = hitArray[0].fid;
+ //y.log(search.folders);
+ for each(var f in search.folders) {
+    y.log(f);
  }
- var f = hitArray[0].fid;
- y.log(f);
- y.log(search.folders._);
  response.object = search;
 
       ]]></execute>
