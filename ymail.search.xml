@@ -29,8 +29,8 @@
         <key id="count" type='xs:string' paramType='variable' />
 	  </inputs>
     <paging model="page">
-        <start id="page" default="0" />
-        <pagesize id="per_page" max="250" />
+        <start id="page" default="1" />
+        <pagesize id="per_page" max="500" />
         <total default="100" />
     </paging>
 	  <execute><![CDATA[
