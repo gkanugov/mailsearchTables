@@ -24,10 +24,13 @@
 		    <key id="attachmenttypes" type='xs:string' paramType='variable' />
 		    <key id="attachmentname" type='xs:string' paramType='variable' />
 		    <key id="fid" type='xs:string' paramType='variable' />
-		    <key id="count" type='xs:string' paramType='variable' />
-		    <key id="start" type='xs:string' paramType='variable' />
 		    <key id="appid" type='xs:string' paramType='variable' />
 	  </inputs>
+    <paging model="page">
+        <start id="start" default="0" />
+        <pagesize id="count" max="250" />
+        <total default="100" />
+    </paging>
 	  <execute><![CDATA[
   
     /*
