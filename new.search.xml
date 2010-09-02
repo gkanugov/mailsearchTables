@@ -176,9 +176,11 @@
     }    
  }
  delete resp.folders;
+ response.object = resp;
  }
- response.object = <search>{resp}</search>;
- y.log(response.object);
+ else {
+    response.object = query.url;
+ }
 
       ]]></execute>
    </i:select>
