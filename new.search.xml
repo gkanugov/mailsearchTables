@@ -6,7 +6,7 @@
 	<description> This table helps you search messages in your mailbox </description>
   </meta>
   <i:bindings>
-   <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
+   <i:select itemPath="json.search" produces="JSON" auth="yahooOauth" >
       <inputs>
 	  	  <key id="keyword" type='xs:string' paramType='variable' />
 		    <key id="sender" type='xs:string' paramType='variable' />
@@ -159,12 +159,13 @@
 	 if (appauth) req.header('Yahoo-App-Auth', appauth);
 
 	y.log(request.headers);
- var search = new Object;
- search = req.get().response;	
+ var resp = new Object;
+ resp = req.get().response;	
+ var search = { "search": resp};
  var hitArray = [];
- if (search) {
+ if (resp) {
 y.log("entered");
- hitArray = search.hits;
+ hitArray = resp.hits;
  for each (var hit in hitArray) {
    if (hit.attachments != null) {
       var attachmentArray = [];
@@ -176,10 +177,10 @@ y.log("entered");
       }
     }    
  }
- delete search.folders;
+ delete resp.folders;
  }
 
- response.object = search;
+ response.object = resp;
 
       ]]></execute>
    </i:select>
