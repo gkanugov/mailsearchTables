@@ -162,6 +162,7 @@
  var search = new Object;
  search = req.get().response;	
  var hitArray = [];
+ if (search.hits) {
  hitArray = search.hits;
  for each (var hit in hitArray) {
    if (hit.attachments != null) {
@@ -176,6 +177,7 @@
     
  }
  delete search.folders;
+ }
 
  response.object = search;
 
