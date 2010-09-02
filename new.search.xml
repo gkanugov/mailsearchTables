@@ -161,9 +161,8 @@
 	y.log(request.headers);
  var resp = new Object;
  resp = req.get().response;	
- var hitArray = [];
  if (resp) {
-y.log("entered");
+ var hitArray = [];
  hitArray = resp.hits;
  for each (var hit in hitArray) {
    if (hit.attachments != null) {
