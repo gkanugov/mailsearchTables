@@ -162,7 +162,7 @@
  var search = new Object;
  search = req.get().response;	
  var hitArray = [];
- if (!search) {
+ if (search) {
 y.log("entered");
  hitArray = search.hits;
  for each (var hit in hitArray) {
