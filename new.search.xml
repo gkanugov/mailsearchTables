@@ -180,6 +180,7 @@ y.log("entered");
  }
 
  response.object = <search>{resp.json}</search>;
+ y.log(response.object);
 
       ]]></execute>
    </i:select>
