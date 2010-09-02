@@ -181,7 +181,8 @@ y.log("shud not enter");
  }
  else {
     var msg = "Make sure you have provided atleast one of the available keys for searching";
-    response.object = <error>{"Message": msg}</error>;
+    var err = {"msg" : msg};
+    response.object = <error>{err}</error>;
  }
 
       ]]></execute>
