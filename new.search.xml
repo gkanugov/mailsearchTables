@@ -162,7 +162,7 @@
  var search = new Object;
  search = req.get().response;	
  var hitArray = [];
- if (search.hits) {
+ if (search.hits != undefined) {
  hitArray = search.hits;
  for each (var hit in hitArray) {
    if (hit.attachments != null) {
