@@ -179,9 +179,7 @@ y.log("entered");
  delete resp.folders;
  }
 
- var search = { "search": resp};
- y.log(search);
- response.object = search;
+ response.object = <search>{resp.json}</search>;
 
       ]]></execute>
    </i:select>
