@@ -162,7 +162,7 @@
  var search = new Object;
  search = req.get().response;	
  var hitArray = [];
- if (!search.hits) { return;}
+ if (!search) {
  hitArray = search.hits;
  for each (var hit in hitArray) {
    if (hit.attachments != null) {
@@ -173,7 +173,7 @@
           delete attachment.thumbnailurl;
         }
       }
-    
+    }    
  }
  delete search.folders;
  }
