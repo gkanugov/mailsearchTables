@@ -180,6 +180,7 @@ y.log("entered");
  }
 
  var search = { "search": resp};
+ y.log(search);
  response.object = search;
 
       ]]></execute>
