@@ -177,7 +177,6 @@
  }
  delete resp.folders;
  }
- y.log(resp.json);
  response.object = <search>{resp}</search>;
  y.log(response.object);
 
