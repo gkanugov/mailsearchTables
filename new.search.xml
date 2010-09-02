@@ -161,7 +161,6 @@
 	y.log(request.headers);
  var resp = new Object;
  resp = req.get().response;	
- var search = { "search": resp};
  var hitArray = [];
  if (resp) {
 y.log("entered");
@@ -180,7 +179,8 @@ y.log("entered");
  delete resp.folders;
  }
 
- response.object = resp;
+ var search = { "search": resp};
+ response.object = search;
 
       ]]></execute>
    </i:select>
