@@ -180,7 +180,7 @@ y.log("shud not enter");
  response.object = resp;
  }
  else {
-    response.object = <error>{'Message': 'Make sure you have provided atleast one of the available keys for searching'}}</error>;
+    response.object = <error>{'Message':'Make sure you have provided atleast one of the available keys for searching'}</error>;
  }
 
       ]]></execute>
