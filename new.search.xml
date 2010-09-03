@@ -182,7 +182,7 @@ y.log("shud not enter");
  else {
     var msg = "Make sure you have provided atleast one of the available keys for searching";
     var err = {"msg" : msg};
-    response.object = <json><error>{err}</error><json>;
+    response.object = <json><error>{err}</error></json>;
  }
 
       ]]></execute>
