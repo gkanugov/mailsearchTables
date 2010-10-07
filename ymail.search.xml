@@ -658,7 +658,8 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
           }
         }
         delete search.folders;
-        var res = {"result" : search};
+        var res = new Object;
+        res.result = search;
         y.log(res);
         response.object = res;
         }()); 
