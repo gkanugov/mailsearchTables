@@ -165,6 +165,7 @@
 y.log("shud not enter");
  var hitArray = [];
  hitArray = resp.hits;
+delete resp.gowri;
  for each (var hit in hitArray) {
    if (hit.attachments != null) {
       var attachmentArray = [];

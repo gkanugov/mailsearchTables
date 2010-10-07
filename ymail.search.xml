@@ -6,7 +6,7 @@
 	<description> This table helps you search messages in your mailbox </description>
   </meta>
   <i:bindings>
-   <i:select itemPath="json" produces="JSON" auth="yahooOauth" >
+   <i:select itemPath="json.result" produces="JSON" auth="yahooOauth" >
       <inputs>
 	  	  <key id="keyword" type='xs:string' paramType='variable' />
 		    <key id="sender" type='xs:string' paramType='variable' />
@@ -658,7 +658,8 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
           }
         }
         delete search.folders;
-        response.object = search;
+        var res = {"result" : search};
+        response.object = res;
         }()); 
       ]]></execute>
    </i:select>
