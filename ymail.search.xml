@@ -660,7 +660,8 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
         delete search.folders;
         //var res = '<result>'+search+'</result>';
        // y.log(res);
-        response.object = <result>{search}</result>;
+        //response.object = <result>{search}</result>;
+        response.object = search;
         }()); 
       ]]></execute>
    </i:select>
